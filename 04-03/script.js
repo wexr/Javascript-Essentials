@@ -1,4 +1,4 @@
-function findBiggestFraction(){    
+function findBiggestFraction(a, b){    
     // Ternary if statement
     a>b ? console.log("a: ", a) : console.log("b: " + b);
 
@@ -10,7 +10,8 @@ function findBiggestFraction(){
       }  
 }
 
-var a = 3/4;
-var b = 5/7;
+var firstFraction = 3/4;
+var secondFraction = 5/7;
 
-findBiggestFraction();
+findBiggestFraction(firstFraction, secondFraction);
+findBiggestFraction(7/16, 13/25);
