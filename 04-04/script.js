@@ -1,16 +1,20 @@
-function findBiggestFraction(a, b){    
+function findBiggestFraction(a, b){ 
+    var result;
+    
     // Ternary if statement
-    a>b ? console.log("a: ", a) : console.log("b: " + b);
-
-    // Normal if statement
-    if(a > b){
-        console.log("a: " + a);
-      } else{
-          console.log("b: " + b);
-      }  
+    a>b ? result = ["firstFraction", a] : result = ["secondFraction", b];
+    
+    //return statement
+    return result;
 }
 
 var firstFraction = 3/4;
 var secondFraction = 5/7;
 
-findBiggestFraction(firstFraction, secondFraction);
+var fractionResult = findBiggestFraction(firstFraction, secondFraction);
+console.log("First fraction result: " + firstFraction);
+console.log("Second fraction result: " + secondFraction);
+console.log("Fraction \"" + fractionResult[0] + "\" with a value of \"" + fractionResult[1] + "\" is the biggest!");
+
+
+
