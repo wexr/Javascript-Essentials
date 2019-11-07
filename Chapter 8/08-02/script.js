@@ -12,12 +12,29 @@ const theTimer = document.querySelector(".timer");
 
 
 // Match the text entered with the provided text on the page:
-
+function spellCheck(){
+    let textEntered = testArea.value;
+    console.log(textEntered);
+    
+}
 
 // Start the timer:
+function start(){
+    let textEnteredLenght = testArea.nodeValue.length;
+    console.log(textEnteredLenght);
+    
+}
 
 
 // Reset everything:
+function reset(){
+    // let resetTimer = theTimer.innerHTML("00:00:00");
+    console.log("Reset button has been pressed!");
+    
+}
 
 
 // Event listeners for keyboard input and the reset button:
+testArea.addEventListener("keypress", start, false);
+testArea.addEventListener("keyup", spellCheck, false);
+resetButton.addEventListener("click", reset, false);
