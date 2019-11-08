@@ -6,7 +6,7 @@ const theTimer = document.querySelector(".timer");
 
 var timer = [0,0,0,0];
 var interval;
-var timerRunning = false;
+
 
 // Add leading zero to numbers 9 or below (purely for aesthetics):
 function leadingZero(time) {
@@ -20,7 +20,7 @@ function leadingZero(time) {
 function runTimer() {
     let currentTime = leadingZero(timer[0]) + ":" + leadingZero(timer[1]) + ":" + leadingZero(timer[2]);
     theTimer.innerHTML = currentTime;
-    timer[3]+;
+    timer[3]++;
 
     timer[0] = Math.floor((timer[3]/100)/60);
     timer[1] = Math.floor((timer[3]/100) - (timer[0] * 60));
@@ -31,6 +31,7 @@ function runTimer() {
 // Match the text entered with the provided text on the page:
 function spellCheck() {
     let textEntered = testArea.value;
+    console.log("Text entered: ", textEntered);
     let originTextMatch = originText.substring(0,textEntered.length);
 
     if (textEntered == originText) {
@@ -38,7 +39,7 @@ function spellCheck() {
         testWrapper.style.borderColor = "#429890";
     } else {
         if (textEntered == originTextMatch) {
-            testWrapper.style.borderColor = "#65CCf3";
+            testWrapper.style.borderColor = "#65CCf3" + originTextMatch + "more string";
         } else {
             testWrapper.style.borderColor = "#E95D0F";
         }
@@ -49,8 +50,8 @@ function spellCheck() {
 // Start the timer:
 function start() {
     let textEnterdLength = testArea.value.length;
-    if (textEnterdLength === 0 && !timerRunning) {
-        timerRunning = true;
+    if (textEnterdLength === 0) {
+
         interval = setInterval(runTimer, 10);
     }
 }
@@ -60,7 +61,7 @@ function reset() {
     clearInterval(interval);
     interval = null;
     timer = [0,0,0,0];
-    timerRunning = false;
+
 
     testArea.value = "";
     theTimer.innerHTML = "00:00:00";
